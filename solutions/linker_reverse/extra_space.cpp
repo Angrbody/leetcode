@@ -28,9 +28,7 @@ public:
         size = node_val.size();
         for(int i = size; i>0; i--)
         {
-            ListNode *node = new ListNode;
-            node->val = node_val[i];
-            node->next = NULL;
+            ListNode node(node_val[i],NULL);
             phead ->next = node;
             phead = node;
             
