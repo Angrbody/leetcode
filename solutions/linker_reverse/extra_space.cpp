@@ -12,32 +12,20 @@ using namespace std;
  
 class Solution {
 public:
-    int count = 0;
-    int size = 0;
-    vector<int> node_val;
-    node_val.max_size = 5000;
+    
     ListNode* reverseList(ListNode* head) {
-        ListNode* phead;
-        if(head->next == NULL){return head;}
-        while(head!= NULL)
-       {
-           count ++;
-           node_val.emplace_back(head->next->val);
-           head = head->next;
-       } 
-        size = node_val.size();
-        for(int i = size; i>0; i--)
-        {
-            ListNode node(node_val[i],NULL);
-            phead ->next = node;
-            phead = node;
-            
+        vector <int> Nodeval;
+        ListNode* newhead = head;
+        while(newhead){
+            Nodeval.emplace_back(newhead->val);
+            newhead = newhead->next;
         }
-        for(int j = 0; j<size; j++)
-        {
-            std::cout<<phead->val<<std::endl;
-            phead = phead->next;
+        newhead = head;
+        int size = Nodeval.size();
+        for(int i = size-1; i>=0; i--){
+            newhead->val = Nodeval[i];
+            newhead = newhead->next; 
         }
-       
+        return head;
     }
 };

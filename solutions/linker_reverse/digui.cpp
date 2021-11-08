@@ -14,9 +14,9 @@ public:
         if(!head || !head->next){
             return head;
         }
-        ListNode* cur = reverseList(head->next);
-        head->next->next = head;
-        head->next = NULL;
-        return cur;
+        ListNode* cur = reverseList(head->next);    //将整个链表拆成两部分：已经倒转的和未倒转的
+        head->next->next = head;            //反转操作
+        head->next = NULL;                  //避免出现环路
+        return cur;                         //该指针始终指向原链表的末尾，新链表的头部
     }
 };
