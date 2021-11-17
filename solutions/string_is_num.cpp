@@ -35,9 +35,10 @@ int main(int argc, char*argv[])
     int size = s.size();
     double d;
     char c;
-    for(int i = 0, i<size, i++)
+    for(int i = 0;i<size; i++)
     {
-        
+        if(isdigit(s[i])!=0)
+            return true;
     }
     
     system("pause");
