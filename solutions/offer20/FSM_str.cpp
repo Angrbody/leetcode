@@ -12,6 +12,7 @@ class Solution{
     'e': exp
     '.': float
     */
+   //用unordered_map存储FSM状态：status[9]
     unordered_map<char, int> status[9]{
         {{'d', 2}, {'.', 4}, {'s', 1}, {' ', 0}},   // status 0
         {{'d', 2}, {'.', 4}},                       // status 1
@@ -37,7 +38,7 @@ class Solution{
             if(it == status[p].end())
             return false;
 
-            p = (int)it->second;
+            p = (int)it->second;    //这里有点没搞懂
 
         }
         if(p==2 || p==3 || p==7 || p==8)
