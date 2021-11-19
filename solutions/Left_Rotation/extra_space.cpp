@@ -1,43 +1,24 @@
 #include<iostream>
 #include<unordered_map>
 #include<string>
+#include<vector>
 using namespace std;
+//意在使用一个非string的容器来保存。这种方法为什么会报错？
 class Solution{
 public:
     static string reverseLeftWords (string s, int n){
-        unordered_map <int, char> map;
-        int size = s.length();
+        int size = s.size();
         string res;
-        for(int i = n; i < size; i++){
-            res.push_back(s[i]);
+        char tmp[size];
+        for(int i = 0; i<size-n; i++){
+            tmp[i] = s[i+n];
         }
-
-        for(int j = 0; j < n; j++){
-            res.push_back(s[j]);
+        for(int i = 0; i<n; i++){
+            tmp[size-n+i] = s[i];
+        }
+        for(int i = 0; i<size; i++){
+            res[i] = tmp[i];
         }
         return res;
     }
 };
-
-//test
-int main(){
-    string s = "lrloseumgh";
-    int k = 6;
-    int size = s.length();
-    // string left = s.substr(0,k);
-    // string right = s.substr(k,size-k);
-    // string res = right+left;
-    // cout<<res;
-    string res;
-        for(int i = k; i < size; i++){
-            res.push_back(s[i]);
-        }
-
-        for(int j = 0; j < k; j++){
-            res.push_back(s[j]);
-        }
-        cout<<res;
-    system("pause");
-    return 0;
-
-}
