@@ -13,7 +13,7 @@ public:
     }
 };
 
-//这是一种很占空间但是比较巧妙的解决办法，不如取余
+//这是一种很占空间（2*n）但是比较巧妙的解决办法，不如取余
 class Solution2{    
 public:
     static string reverseLeftWords(string s, int n){
