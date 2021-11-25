@@ -5,7 +5,7 @@ class Solution {
 public:
     int strToInt(string str) {
         int res = 0, index = 0, sign = 1;   //符号位默认为1（正）
-        int bndry = INT_MAX/10;
+        int bndry = INT_MAX/10;         //INT_MAX为系统为int类型设置的最大值
         int l = str.size();
         if(l == 0)  return 0;
         while(str[index] == ' '){
